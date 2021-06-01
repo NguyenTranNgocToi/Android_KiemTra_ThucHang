@@ -53,24 +53,17 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             }
         });
 
-//        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                APIService.apiService.deleteUser(emloyee.getId()).enqueue(new Callback<Emloyee>() {
-//                    @Override
-//                    public void onResponse(Call<User> call, Response<User> response) {
-//                        Intent intent = new Intent(v.getContext(), MainActivity.class);
-//                        Toast.makeText(v.getContext(), "success", Toast.LENGTH_SHORT).show();
-//                        v.getContext().startActivity(intent);
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<User> call, Throwable t) {
-//
-//                    }
-//                });
-//            }
-//        });
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "success", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(v.getContext(), Delete.class);
+
+                intent.putExtra("id",emloyee.getId()+"");
+                v.getContext().startActivity(intent);
+            }
+        });
 
     }
 
