@@ -10,7 +10,7 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    String url ="https://60ab127c5a4de40017cc94ba.mockapi.io/";
     Button btnback;
     RecyclerView rcv;
     CustomAdapter adt;
