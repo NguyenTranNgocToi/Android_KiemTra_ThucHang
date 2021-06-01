@@ -17,6 +17,8 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".Manager"/>
+        <activity android:name=".AddEmployee"/>
         <activity android:name=".MainActivity">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
