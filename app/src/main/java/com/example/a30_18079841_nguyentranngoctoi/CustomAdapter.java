@@ -1,18 +1,23 @@
 package com.example.a30_18079841_nguyentranngoctoi;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder>{
     private ArrayList<Emloyee> emloyees;
+
 
     public CustomAdapter(ArrayList<Emloyee> emloyees) {
         this.emloyees = emloyees;
@@ -32,6 +37,41 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         holder.tvId.setText(emloyee.getId());
         holder.tvName.setText(emloyee.getName());
         holder.tvAge.setText(emloyee.getAge()+"");
+
+        holder.btnUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), "success", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(v.getContext(), UpdateEmployee.class);
+
+                intent.putExtra("id",emloyee.getId()+"");
+                intent.putExtra("name",emloyee.getName());
+                intent.putExtra("age",emloyee.getAge());
+                intent.putExtra("department",emloyee.getDepartment());
+                v.getContext().startActivity(intent);
+            }
+        });
+
+//        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                APIService.apiService.deleteUser(emloyee.getId()).enqueue(new Callback<Emloyee>() {
+//                    @Override
+//                    public void onResponse(Call<User> call, Response<User> response) {
+//                        Intent intent = new Intent(v.getContext(), MainActivity.class);
+//                        Toast.makeText(v.getContext(), "success", Toast.LENGTH_SHORT).show();
+//                        v.getContext().startActivity(intent);
+//                    }
+//
+//                    @Override
+//                    public void onFailure(Call<User> call, Throwable t) {
+//
+//                    }
+//                });
+//            }
+//        });
+
     }
 
     @Override
