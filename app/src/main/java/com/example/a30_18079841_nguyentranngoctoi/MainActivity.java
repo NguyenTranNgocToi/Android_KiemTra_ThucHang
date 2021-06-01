@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject obj = (JSONObject) response.get(i);
                         String id = obj.getString("id");
                         String name = obj.getString("name");
-                        int age = obj.getInt("age");
+                        String age = obj.getString("age");
                         String depart = obj.getString("department");
                         Emloyee emloyee = new Emloyee(id, name, age,depart);
                         emloyees.add(emloyee);

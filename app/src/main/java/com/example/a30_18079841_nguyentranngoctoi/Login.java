@@ -16,6 +16,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
+    //user nguyentoi@gmail.com
+    //pass 123456
     Button btnlogin;
 
     EditText edEmail,edPassWord;

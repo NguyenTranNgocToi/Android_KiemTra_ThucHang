@@ -29,7 +29,7 @@ public class AddEmployee extends AppCompatActivity {
         setContentView(R.layout.add_employee);
 
 
-        edName = findViewById(R.id.ed_name_up);
+        edName = findViewById(R.id.ed_name_add);
         eddepart=findViewById(R.id.ed_depart_add);
         edage =findViewById(R.id.ed_age_add);
 
@@ -49,7 +49,7 @@ public class AddEmployee extends AppCompatActivity {
 
     private void post(String url) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                url + "employee", new Response.Listener<String>() {
+                url + "employee/", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(AddEmployee.this, "Successfully", Toast.LENGTH_SHORT).show();
@@ -64,10 +64,9 @@ public class AddEmployee extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<>();
-                params.put("id","1000");
                 params.put("name", edName.getText().toString().trim());
-                params.put("age",  "10");
                 params.put("department", eddepart.getText().toString().trim());
+                params.put("age",  edage.getText().toString().trim());
                 return params;
             }
         };
